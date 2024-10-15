@@ -10,12 +10,9 @@ import path from "path";
 dotenv.config();
 
 mongoose
-  .connect(process.env.MONGO, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect("mongodb://localhost:27017", {})
   .then(() => {
-    console.log("mongodb://localhost:27017");
+    console.log("connected");
   })
   .catch((err) => {
     console.log(err);
@@ -30,7 +27,7 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-app.listen(process.env.PORT, () => {
+app.listen(3000, () => {
   console.log(`Server is running on Port ${process.env.PORT}!`);
 });
 
