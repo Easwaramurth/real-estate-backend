@@ -7,14 +7,12 @@ import listingRouter from "./routes/listing.route.js";
 import cookieParser from "cookie-parser";
 import path from "path";
 import cors from "cors";
+import jwt from "jsonwebtoken";
 
 dotenv.config();
 
 mongoose
-  .connect(
-    "mongodb+srv://easwaramurthi14cs:cZaDebAZkbBLZ9Kk@test-name-db.kii7i.mongodb.net/?retryWrites=true&w=majority&appName=test-name-db",
-    {}
-  )
+  .connect(process.env.MONGO_URI, {})
   .then(() => {
     console.log("connected");
   })
